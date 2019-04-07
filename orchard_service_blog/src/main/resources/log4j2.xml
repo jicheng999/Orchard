@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+	<properties>
+		<property name="PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [${hostName}|%t] (%F:%L) - %m%n</property>
+		<!--<property name="LOG_HOME">/data/${sys:log.env}/logs/QualityService</property>-->
+		<property name="LOG_HOME">E:\\logs\\blog\\code\\log</property>
+	</properties>
+
+	<appenders>
+	
+		<!-- 控制台日志 -->	
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="${PATTERN}" />
+			<ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
+		</Console>
+		
+		<!-- 错误日志 -->
+        <RollingFile name="Error" fileName="${LOG_HOME}/spms_error.log" 
+			filePattern="${LOG_HOME}/spms_error_%d{yyyy_MM_dd}-%i.log">
+			<PatternLayout pattern="${PATTERN}" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+			</Policies>
+			<Filters>
+				<ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY" />
+			</Filters>
+		</RollingFile>
+
+		<!-- 按日期每天生成log文件 -->
+		<RollingFile name="RollingFile" fileName="${LOG_HOME}/spms_application.log" 
+			filePattern="${LOG_HOME}/spms_application_%d{yyyy_MM_dd}-%i.log">
+			<PatternLayout pattern="${PATTERN}" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+			</Policies>
+			<Filters>
+				<ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY" />
+			</Filters>
+		</RollingFile>
+	</appenders>
+
+	<loggers>
+		<logger name="com.migu.spms" level="DEBUG" />
+		<logger name="druid.sql" level="INFO" />
+		<logger name="org.springframework" level="INFO" />
+		<logger name="org.mybatis.spring.transaction" level="DEBUG" />
+		<root level="INFO">
+			<appenderref ref="Console" />
+			<appenderref ref="RollingFile" />
+			<appenderref ref="Error" />
+		</root>
+	</loggers>
+</configuration>

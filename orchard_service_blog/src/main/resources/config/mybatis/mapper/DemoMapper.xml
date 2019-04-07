@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="pers.hc.orchard.blog.dao.IDemoDao" >
+
+    <insert id="save" parameterType="pers.hc.orchard.blog.entity.Demo">
+      INSERT INTO demo (demo) values (#{demo})
+    </insert>
+
+    <select id="selectAll" resultType="pers.hc.orchard.blog.entity.Demo">
+      SELECT * FROM demo
+    </select>
+
+    <update id="update" parameterType="pers.hc.orchard.blog.entity.Demo">
+      UPDATE demo set demo = #{demo}
+    </update>
+	
+  
+</mapper>
