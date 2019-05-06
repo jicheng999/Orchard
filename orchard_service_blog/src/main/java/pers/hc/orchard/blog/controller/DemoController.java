@@ -43,7 +43,7 @@ public class DemoController {
         for (int i = 0; i < 5; i++) {
             Demo demo=new Demo();
             demo.setId(Long.valueOf(i));
-            demo.setDemo("demo" + i);
+           // demo.setDemo("demo" + i);
             demos.add(demo);
         }
 
@@ -51,6 +51,13 @@ public class DemoController {
         return "demo/demo";
     }
 
+
+    @RequestMapping(value="/acceptMq",method = RequestMethod.GET)
+    @ResponseBody
+    public String acceptMq(){
+
+        return "";
+    }
 
 
 }

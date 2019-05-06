@@ -3,7 +3,53 @@
 <mapper namespace="pers.hc.orchard.blog.dao.IDemoDao" >
 
     <insert id="save" parameterType="pers.hc.orchard.blog.entity.Demo">
-      INSERT INTO demo (demo) values (#{demo})
+        insert into demo
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                id,
+            </if>
+            <if test="creTime != null" >
+                cre_time,
+            </if>
+            <if test="modifyTime != null" >
+                modify_time,
+            </if>
+            <if test="status != null" >
+                status,
+            </if>
+            <if test="username != null" >
+                username,
+            </if>
+            <if test="address != null" >
+                address,
+            </if>
+            <if test="age != null" >
+                age,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="creTime != null" >
+                #{creTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyTime != null" >
+                #{modifyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null" >
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="username != null" >
+                #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null" >
+                #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="age != null" >
+                #{age,jdbcType=INTEGER},
+            </if>
+        </trim>
     </insert>
 
     <select id="selectAll" resultType="pers.hc.orchard.blog.entity.Demo">
