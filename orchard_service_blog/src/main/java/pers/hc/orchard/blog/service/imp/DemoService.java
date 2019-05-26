@@ -8,7 +8,7 @@ import pers.hc.orchard.blog.dao.IDemoDao;
 import pers.hc.orchard.blog.entity.Demo;
 import pers.hc.orchard.blog.service.IDemoService;
 
-import java.util.Date;
+import java.util.List;
 
 /**
  * Created by liujicheng on 2018/11/16.
@@ -24,7 +24,7 @@ public class DemoService implements IDemoService {
 
     @Override
     @Transactional
-    public void demoTest() {
+    public List<Demo> demoTest() {
 
 //        Date now = new Date();
 //        Demo dm = new Demo();
@@ -32,8 +32,6 @@ public class DemoService implements IDemoService {
 //        dm.setCreTime(now);
 //        dm.setModifyTime(now);
 //        demoDao.save(dm);
-
-        Demo demo = new Demo();
-
+        return demoDao.selectAll();
     }
 }

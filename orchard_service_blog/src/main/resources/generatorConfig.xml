@@ -5,23 +5,21 @@
 
 	 <context id="table" >
 		 <commentGenerator>
+			 <property name="addRemarkComments" value="true"></property>
 			 <property name="suppressDate" value="true"></property>
-			 <property name="suppressAllComments" value="true"></property>
+			 <property name="suppressAllComments" value="false"></property>
 		 </commentGenerator>
 
-		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/payment2" userId="root" password="111111" />
-		<javaModelGenerator targetPackage="pers.hc.orchard.blog.entity" targetProject="./src/main/java"  />
-		<sqlMapGenerator targetPackage="config.mybatis.mapper" targetProject="./src/main/java" />
-		<javaClientGenerator targetPackage="pers.hc.orchard.blog.mapper" targetProject="./src/main/java" type="XMLMAPPER" />
-		<!--<table schema="SPmPayRequest" tableName="s_pm_pay_request" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-		 <!--<table schema="YeepayPayRequest" tableName="s_yeepay_pay_request" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-		 <!--<table schema="YeepayRefundQuery" tableName="s_yeepay_refund_query" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-		 <!--<table schema="YeepayRefundRequest" tableName="s_yeepay_refund_request" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-		 <!--<table schema="YeepayTradeQuery" tableName="s_yeepay_trade_query" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-		 <!--<table schema="SysConfig" tableName="m_sys_config" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-		 <!--<table schema="SPmRefundRequest" tableName="s_pm_refund_request" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-		 <!--<table schema="SPmMerchantInfo" tableName="s_pm_merchant_info" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/orchard" userId="root" password="111111" />
+<!--		<javaModelGenerator targetPackage="pers.hc.orchard.blog.entity" targetProject="./src/main/java"  />-->
+<!--		<sqlMapGenerator targetPackage="config.mybatis.mapper" targetProject="./src/main/resources" />-->
+<!--		<javaClientGenerator targetPackage="pers.hc.orchard.blog.dao" targetProject="./src/main/java" type="XMLMAPPER" />-->
 		 <!--<table schema="Demo" tableName="demo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+
+		 <javaModelGenerator targetPackage="pers.hc.orchard.blog.entity" targetProject="J:\360MoveData\Users\JC\Desktop"  />
+		 <sqlMapGenerator targetPackage="pers.hc.orchard.blog.dao" targetProject="J:\360MoveData\Users\JC\Desktop" />
+		 <javaClientGenerator targetPackage="pers.hc.orchard.blog.dao" targetProject="J:\360MoveData\Users\JC\Desktop" type="XMLMAPPER" />
+		 <table schema="Article" tableName="article" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="true"></table>
 
 	 </context>
 

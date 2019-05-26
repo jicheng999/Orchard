@@ -24,5 +24,6 @@ public class DemoService implements IDemoService {
             dm.setDemo("user"+i);
             demoDao.save(dm);
         }
+        System.out.println("");
     }
 }

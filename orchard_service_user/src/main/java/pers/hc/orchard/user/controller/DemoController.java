@@ -17,7 +17,7 @@ import java.util.Random;
  */
 @RestController
 public class DemoController {
-    private static double ii= new Random().nextInt(10);
+    private static double ii = new Random().nextInt(10);
 
     @Autowired
     IDemoService demoService;
@@ -26,25 +26,30 @@ public class DemoController {
     private AmqpTemplate mQtemplate;
 
 
-    @RequestMapping(value="/test",method = RequestMethod.GET)
-//    @GetMapping(value="/test")
-    public String getDemo(){
-        //demoService.demoTest();
-        return "this is user "+ii;
+
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+
+    //    @GetMapping(value="/test")
+    public String getDemo() {
+        demoService.demoTest();
+        return "this is user " + ii;
     }
 
-    @RequestMapping(value="/sendMq",method = RequestMethod.GET)
-    public String sendMq(){
+    @RequestMapping(value = "/sendMq", method = RequestMethod.GET)
+    public String sendMq() {
         //demoService.demoTest();
         List<Demo> demos = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             Demo item = new Demo();
             item.setId(Long.valueOf(i));
-            item.setDemo("address"+i);
+            item.setDemo("address" + i);
             demos.add(item);
         }
-        demos.forEach(item->mQtemplate.convertAndSend("testQuere",item.toString()));
+        demos.forEach(item -> mQtemplate.convertAndSend("testQuere", item.toString()));
         return "send to MQ success queue name is testQuere";
     }
+
+
+
 
 }
